@@ -250,7 +250,6 @@ def get_multilingual_news(lang):
     return news_data.get(lang, news_data['en'])
 
 # --- ROOT ENDPOINT ---
-# --- ROOT ENDPOINT ---
 @app.route("/")
 def index():
     """Serves the frontend HTML file."""
@@ -617,8 +616,10 @@ def handle_heatmap_data():
     data = {state: round(base_price * random.uniform(0.85, 1.15)) for state in states}
     return jsonify(data)
 
+# --- INITIALIZE DATABASE GLOBALLY (FIXED) ---
+# This ensures the DB is created even when using Gunicorn
+init_db()
 
 # --- Main Execution ---
 if __name__ == '__main__':
-    init_db() 
     app.run(host='0.0.0.0', port=5000, debug=True)
