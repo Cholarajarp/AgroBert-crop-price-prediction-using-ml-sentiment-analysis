@@ -4,18 +4,18 @@ A multilingual agricultural web application that provides crop price predictions
 
 ## Features
 
-- 🌾 **Crop Price Prediction**: AI-powered price forecasting for various agricultural commodities with detailed breakdown (average, minimum, maximum prices)
-- 🌦️ **Weather Integration**: Real-time weather data and its impact on crops
-- 💬 **Multilingual Support**: Available in English, Hindi (हिंदी), and Kannada (ಕನ್ನಡ)
-- 🤖 **AI Chatbot**: Intelligent assistant for farming queries with voice input support
-- 📊 **Sentiment Analysis**: Market sentiment analysis from agricultural news for better decision making
-- 🌱 **Crop Recommendations**: Smart crop suggestions based on soil type, rainfall, pH, and temperature
-- 📍 **Regional Analysis**: Crop analysis across different Indian regions with interactive heatmap
-- 💰 **Price Alerts**: Get notifications when commodity prices reach your target levels
-- 📊 **Model Performance Metrics**: View ARIMA baseline vs AgroBERT AI model performance with improvement percentage
-- 🔄 **Commodity Comparison**: Compare price trends of multiple commodities side-by-side
-- 📄 **PDF Report Generation**: Generate detailed reports with price predictions and analysis
-- 🔄 **Data Synchronization**: Sync agricultural data from multiple sources (Agmarknet, OpenWeather, FAOSTAT)
+- **Crop Price Prediction**: AI-powered price forecasting for various agricultural commodities with detailed breakdown (average, minimum, maximum prices)
+- **Weather Integration**: Real-time weather data and its impact on crops
+- **Multilingual Support**: Available in English, Hindi (हिंदी), and Kannada (ಕನ್ನಡ)
+- **AI Chatbot**: Intelligent assistant for farming queries with voice input support
+- **Sentiment Analysis**: Market sentiment analysis from agricultural news for better decision making
+- **Crop Recommendations**: Smart crop suggestions based on soil type, rainfall, pH, and temperature
+- **Regional Analysis**: Crop analysis across different Indian regions with interactive heatmap
+- **Price Alerts**: Get notifications when commodity prices reach your target levels
+- **Model Performance Metrics**: View ARIMA baseline vs AgroBERT AI model performance with improvement percentage
+- **Commodity Comparison**: Compare price trends of multiple commodities side-by-side
+- **PDF Report Generation**: Generate detailed reports with price predictions and analysis
+-  **Data Synchronization**: Sync agricultural data from multiple sources (Agmarknet, OpenWeather, FAOSTAT)
 
 ## Technology Stack
 

@@ -33,9 +33,9 @@ else:
             safety_settings=safety_settings
         )
         GEMINI_ENABLED = True
-        print("✅ Gemini API initialized successfully.")
+        print("Gemini API initialized successfully.")
     except Exception as e:
-        print(f"❌ Error initializing Gemini API: {e}. AI chat functionality will be disabled.")
+        print(f"Error initializing Gemini API: {e}. AI chat functionality will be disabled.")
         GEMINI_ENABLED = False
 # --- GEMINI SETUP END ---
 
@@ -62,11 +62,11 @@ twilio_client = None
 if Client and TWILIO_ACCOUNT_SID and "AC" in TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN and "your_auth_token" not in TWILIO_AUTH_TOKEN:
     try:
         twilio_client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
-        print("✅ Twilio client configured successfully.")
+        print("Twilio client configured successfully.")
     except Exception as e:
-        print(f"❌ Twilio configuration error: {e}")
+        print(f"Twilio configuration error: {e}")
 else:
-    print("⚠️ Twilio credentials not fully configured. OTPs will be printed to the terminal.")
+    print("Twilio credentials not fully configured. OTPs will be printed to the terminal.")
 
 # --- DATABASE CONFIGURATION ---
 DATABASE_FILE = 'users.db'
@@ -78,7 +78,7 @@ def get_db_conn():
         conn.row_factory = sqlite3.Row
         return conn
     except Exception as e:
-        print(f"❌ Database connection error: {e}")
+        print(f"Database connection error: {e}")
         return None
 
 def init_db():
@@ -86,7 +86,7 @@ def init_db():
     print("Initializing database...")
     conn = get_db_conn()
     if not conn:
-        print("❌ Failed to initialize database")
+        print("Failed to initialize database")
         return
     
     try:
@@ -107,7 +107,7 @@ def init_db():
                 ('farmer', generate_password_hash('farmer123'), 'farmer', 'farmer@example.com', '+919876543210')
             )
         except sqlite3.IntegrityError:
-            print("ℹ️ User 'farmer' already exists.")
+            print("ℹUser 'farmer' already exists.")
             
         try:
             cursor.execute(
@@ -115,12 +115,12 @@ def init_db():
                 ('analyst', generate_password_hash('analyst123'), 'analyst', 'analyst@example.com', '+919876543211')
             )
         except sqlite3.IntegrityError:
-            print("ℹ️ User 'analyst' already exists.")
+            print("ℹUser 'analyst' already exists.")
             
         conn.commit()
-        print("✅ Database initialized.")
+        print("Database initialized.")
     except Exception as e:
-        print(f"❌ Database initialization error: {e}")
+        print(f"Database initialization error: {e}")
     finally:
         if conn:
             conn.close()
@@ -277,7 +277,7 @@ def login():
         access_token = create_access_token(identity=username, additional_claims=additional_claims)
         return jsonify(access_token=access_token)
     except Exception as e:
-        print(f"❌ Login error: {e}")
+        print(f"Login error: {e}")
         return jsonify({"msg": "Login failed"}), 500
     finally:
         if conn:
@@ -352,7 +352,7 @@ def send_otp():
                     from_=TWILIO_PHONE_NUMBER,
                     to=found_mobile
                 )
-                print(f"✅ OTP SMS sent to {found_mobile} via Twilio. SID: {message.sid}")
+                print(f"OTP SMS sent to {found_mobile} via Twilio. SID: {message.sid}")
                 return jsonify({"msg": "OTP sent successfully to your mobile."}), 200
             except Exception as e:
                 print(f"❌ TWILIO SMS FAILED: {e}")
@@ -366,7 +366,7 @@ def send_otp():
             print("="*50 + "\n")
             return jsonify({"msg": "OTP generated. For development, please check server console."}), 200
     except Exception as e:
-        print(f"❌ Send OTP error: {e}")
+        print(f"Send OTP error: {e}")
         return jsonify({"msg": "Failed to send OTP"}), 500
     finally:
         if conn:
@@ -530,7 +530,7 @@ def handle_chat():
             response_text = gemini_response.text
 
         except Exception as e:
-            print(f"❌ Gemini API Error: {e}")
+            print(f"Gemini API Error: {e}")
             pass 
 
     return jsonify({"response": response_text})
