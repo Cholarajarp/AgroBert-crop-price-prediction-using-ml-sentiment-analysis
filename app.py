@@ -2,7 +2,7 @@ import os
 import random
 import sqlite3
 from datetime import datetime, timedelta
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import create_access_token, jwt_required, JWTManager
 from flask_cors import CORS
@@ -250,10 +250,11 @@ def get_multilingual_news(lang):
     return news_data.get(lang, news_data['en'])
 
 # --- ROOT ENDPOINT ---
+# --- ROOT ENDPOINT ---
 @app.route("/")
-def status_check():
-    """A simple endpoint to check if the server is running."""
-    return jsonify({"status": "ok", "message": "AgroBERT Backend is running."})
+def index():
+    """Serves the frontend HTML file."""
+    return render_template('index.html')
 
 # --- AUTHENTICATION ENDPOINTS ---
 @app.route("/api/login", methods=["POST"])
